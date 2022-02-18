@@ -1,1 +1,22 @@
-<h1>Hello world</h1>
+
+<div class="row text-center">
+  <div class="col">
+    <h1>Counter</h1>
+    <h2>{{ counter }}</h2>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+    <button class="btn btn-success me-3" (click)="increment()">+</button>
+    <button class="btn btn-danger" (click)="decrement()">-</button>
+  </div>
+</div>
+
+<hr />
+
+<div class="row text-center">
+  <div class="col">
+    <app-child (changeCounter)="updateCounter($event)" [counter]="counter"></app-child>
+  </div>
+</div>
