@@ -8,7 +8,7 @@ interface Action {
 const reducer = (oldState = 10, action: Action) => {
   switch (action.type) {
     case "INCREMENT":
-      return (oldState + 1);
+      return (oldState += 1);
     case "DECREMENT":
       return (oldState - 1);
     case "MULTIPLY":
