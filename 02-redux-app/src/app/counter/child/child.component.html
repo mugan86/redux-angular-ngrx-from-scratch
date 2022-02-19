@@ -1,5 +1,5 @@
 <h3>Counter - Child</h3>
-<h4>{{ counter }}</h4>
+<h4>{{ count$ | async }}</h4>
 
 <div class="row text-center">
   <div class="col">
@@ -10,8 +10,8 @@
 
 <hr />
 
-<div class="row text-center">
+<!--<div class="row text-center">
   <div class="col">
-    <app-grandson (changeCounter)="updateCounter($event)" [counter]="counter" ></app-grandson>
+    <app-grandson ></app-grandson>
   </div>
-</div>
+</div>-->
