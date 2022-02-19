@@ -12,16 +12,16 @@ interface IAppState {
 })
 export class AppComponent {
   title = 'redux-app';
-  counter: number;
+  // counter: number;
 
   count$: Observable<number>
 
   constructor (private store: Store<IAppState>) {
-    this.counter = 10;
+    // this.counter = 10;
     // Use to take all select state
-    this.store.subscribe((state) => {
+    /*this.store.subscribe((state) => {
       this.counter = state.count;
-    });
+    });*/
     // Take only one select element with observable
     this.count$ = this.store.select('count');
     // whitout observable
@@ -31,5 +31,5 @@ export class AppComponent {
   increment = () => this.store.dispatch(increment())
   decrement = () => this.store.dispatch(decrement())
 
-  updateCounter = (counter: number) => this.counter = counter;
+  // updateCounter = (counter: number) => this.counter = counter;
 }
