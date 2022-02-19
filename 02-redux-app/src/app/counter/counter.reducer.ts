@@ -1,7 +1,7 @@
 // This file use to take actions
 
 import { createReducer, on } from '@ngrx/store';
-import { decrement, increment, division, multiply } from './counter.actions';
+import { decrement, increment, division, multiply, reset } from './counter.actions';
 
 /*export const counterReducer = (state: number = 10, action: Action) => {
   switch (action.type) {
@@ -20,8 +20,8 @@ const _counterReducer = createReducer(
   on(increment, (state) => state + 1),
   on(decrement, (state) => state - 1),
   on(multiply, (state, { number }) => state * number),
-  on(division, (state, { number }) => state / number)
-  // on(reset, (state) => 0)
+  on(division, (state, { number }) => state / number),
+  on(reset, (_) => initialState)
 );
 
 export const counterReducer = (state: number = initialState, action: any) =>

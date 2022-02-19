@@ -1,4 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/internal/Observable';
+import { IAppState } from 'src/app/app.reducers';
+import { reset } from '../counter.actions';
 
 @Component({
   selector: 'app-grandson',
@@ -7,12 +11,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   ]
 })
 export class GrandsonComponent {
-  @Input('counter') counter: number = 10;
-  @Output() changeCounter = new EventEmitter<number>();
-
-  reset = () => {
-    this.counter = 0;
-    this.changeCounter.emit(this.counter);
-  };
-
+  
+  count$: Observable<number>;
+  constructor(private store: Store<IAppState>) {
+    this.count$ = this.store.select('count');
+  }
+  reset = () => this.store.dispatch(reset())
 }

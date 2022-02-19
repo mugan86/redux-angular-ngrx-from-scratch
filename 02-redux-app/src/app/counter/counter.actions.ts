@@ -10,3 +10,4 @@ export const division = createAction(
   '[Counter] Division',
   props<{ number: number }>()
 );
+export const reset = createAction('[Counter] Reset');
