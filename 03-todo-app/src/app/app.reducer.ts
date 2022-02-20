@@ -1,6 +1,5 @@
-import { Todo } from "./todos/models/todo.model";
-
+import { Todo } from './todos/models/todo.model';
 
 export interface AppState {
-    todos: Array<Todo>,
+  todos: Array<Todo>;
 }
