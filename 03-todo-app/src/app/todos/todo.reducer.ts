@@ -1,4 +1,4 @@
-import { add, toggle, edit } from './todo.actions';
+import { add, toggle, edit, deleteItem } from './todo.actions';
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
 export const initialListState: Array<Todo> = [
@@ -29,6 +29,9 @@ const _todoReducer = createReducer(
       return todo;
     });
   }),
+  on(deleteItem, (state, {id}) => {
+    return state.filter(todo => todo.id !== id)
+  })
 );
 
 export function todoReducer(

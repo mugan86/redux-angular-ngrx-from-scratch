@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { edit, toggle } from '../todo.actions';
+import { deleteItem, edit, toggle } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -51,6 +51,10 @@ export class TodoItemComponent implements OnInit {
       id: this.todo.id,
       text: this.txtInput.value
     }));
+  }
+
+  deleteItem() {
+    this.store.dispatch(deleteItem({id: this.todo.id}));
   }
 
 }
