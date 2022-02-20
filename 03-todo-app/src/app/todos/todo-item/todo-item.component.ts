@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { toggle } from '../todo.actions';
+import { edit, toggle } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -33,12 +33,24 @@ export class TodoItemComponent implements OnInit {
 
   edit() {
     this.editState = true;
+    this.txtInput.setValue(this.todo.text);
     setTimeout(() => {
       this.txtInputElement.nativeElement.select();
     }, 1)
     
   }
 
-  lostFocus = () => this.editState = false;
+  lostFocus = () => {
+    this.editState = false;
+
+    // Validations
+    if (this.txtInput.invalid ) { return; }
+    if (this.txtInput.value === this.todo.text ) { return; }
+
+    this.store.dispatch(edit({
+      id: this.todo.id,
+      text: this.txtInput.value
+    }));
+  }
 
 }
