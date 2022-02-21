@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  max-width: 900px;
+}
+
+.filters li a.selected {
+  border: 2px solid #539942;
+}
+
+.filters li a:hover {
+    border: 1px dashed #539942;
+  }
+
+.todoapp h1 {
+    color: #539942;
+}

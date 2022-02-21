@@ -3,6 +3,10 @@ import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
 export const initialListState: Array<Todo> = [
   new Todo('Learn Redux From scratch'),
+  new Todo('Learn Python From scratch', true),
+  new Todo('Learn GraphQL From scratch', true),
+  new Todo('Create my portfolio with search in Angular'),
+  new Todo('Write book: Angular Schematics from scratch step by step'),
 ];
 const _todoReducer = createReducer(
   initialListState,

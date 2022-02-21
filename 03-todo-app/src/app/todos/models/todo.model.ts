@@ -3,9 +3,9 @@ export class Todo {
     public text: string;
     public completed: boolean;
 
-    constructor(text: string) {
+    constructor(text: string, complete: boolean = false) {
         this.text = text;
-        this.id = new Date().getTime();
-        this.completed = false;
+        this.id = Math.floor((Math.random() * 1000000) + 1) + new Date().getTime();
+        this.completed = complete;
     }
 }
