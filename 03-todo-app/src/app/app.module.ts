@@ -7,9 +7,9 @@ import { FooterComponent } from './footer/footer.component';
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
-import { todoReducer } from './todos/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { appReducers } from './app.reducer';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     TodoModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
