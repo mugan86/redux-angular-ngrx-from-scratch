@@ -3,7 +3,10 @@ import { setFilter, validFilters } from './filter.actions';
 export const initialListState: string = validFilters.ALL;
 const _filterReducer = createReducer(
   initialListState,
-  on(setFilter, (_, { filter }) => filter)
+  on(setFilter, (_, { filter }) => {
+    console.log(filter)
+    return filter
+  })
 );
 
 export function filterReducer(state: any = initialListState, action: any): string {

@@ -8,5 +8,5 @@ export enum validFilters {
 
 export const setFilter = createAction(
   '[Filter] Set filter',
-  props<{ filter: validFilters }>()
+  props<{ filter: string }>()
 );
