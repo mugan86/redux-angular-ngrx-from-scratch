@@ -15,11 +15,13 @@ export class TodoFooterComponent implements OnInit {
     validFilters.COMPLETE,
     validFilters.PENDING,
   ];
+  pendingTodos: number = 0;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.select('filter').subscribe((filter) => {
-      this.actualFilter = filter;
+    this.store.subscribe((state) => {
+      this.actualFilter = state.filter;
+      this.pendingTodos = state.todos.filter( todo => !todo.completed).length
     });
   }
   changeFilter(filter: string) {
